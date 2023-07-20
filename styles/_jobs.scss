@@ -1,0 +1,209 @@
+.jobs {
+  @include sectionLayout(40px 25px, var(--background-one));
+
+  &_heading {
+    @include headingLayout(42px, center, 20px, var(--main-text-color));
+  
+  }
+
+  &_timeline_container {
+    max-width: 500px;
+    margin: 0 auto;
+    border-left: 3px solid var(--main-text-color);
+    padding-left: 32px;
+
+  }
+}
+
+.job {
+  @include sectionLayout(25px 20px, var(--jobs-jobcard-background));
+  box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.2);
+  margin: 48px 0;
+  line-height: 2;
+  position: relative;
+  color: var(--main-text-color);
+  border-radius: 10px;
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    color: #9c27b0;
+    font-size: 16px;
+  }
+
+  &_date_beforeLine {
+    position: absolute;
+    left: -125px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+  }
+
+  &_companyLogo {
+    @include imageSize(90px, 40px, contain);
+    position: absolute;
+    right: 10px;
+    top: 30px;
+  }
+
+  &_companyLinks {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+
+    img {
+      @include imageSize(30px, 30px, contain);
+      margin-right: 15px;
+      cursor: pointer;
+    }
+  }
+}
+
+.job::before {
+  @include borderWithRadius(2px solid #000, 50%);
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
+  transition: all 500ms;
+}
+
+.job:hover {
+  box-shadow: 0 2px 10px #9c27b0;
+}
+
+.job:hover::before {
+  background: #9c27b0;
+}
+
+@media only screen and (max-width: 720px) {
+  .jobs_timeline_container {
+    max-width: 100%;
+    margin-left: 8px;
+  }
+
+  .job_date_beforeLine {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .job_companyLinks {
+    position: static;
+    margin-top: 10px;
+  }
+}
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0;
+
+}
+.timeline {
+  width: 80%;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline ul {
+  list-style: none;
+  
+}
+.timeline ul li {
+  padding: 20px;
+  background-color: #1e1f22;
+  color: rgb(109, 109, 109);
+  height: 17rem;
+  background-image: url("../assets/14.webp");
+  background-size: cover ;  
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.timeline ul li:last-child {
+  margin-bottom: 0;
+}
+// .timeline-content {
+//   background-image: url("../assets/includeit.webp");
+//   background-size: cover;
+// }
+
+.timeline-content h1 {
+  font: 300 2rem "Ubuntu Mono", "Roboto";
+  letter-spacing: 2px;
+  line-height: 30px;
+}
+.timeline-content p {
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 300;
+}
+.timeline-content .date {
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+@media only screen and (min-width: 768px) {
+  .timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: gray;
+  }
+  .timeline ul li {
+    width: 50%;
+    position: relative;
+    margin-bottom: 50px;
+  }
+  .timeline ul li:nth-child(odd) {
+    float: left;
+    clear: right;
+    transform: translateX(-30px);
+    border-radius: 20px 0px 20px 20px;
+  }
+  .timeline ul li:nth-child(even) {
+    float: right;
+    clear: left;
+    transform: translateX(30px);
+    border-radius: 0px 20px 20px 20px;
+  }
+  .timeline ul li::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: gray;
+    top: 0px;
+  }
+  .timeline ul li:nth-child(odd)::before {
+    transform: translate(50%, -50%);
+    right: -30px;
+  }
+  .timeline ul li:nth-child(even)::before {
+    transform: translate(-50%, -50%);
+    left: -30px;
+  }
+  .timeline-content .date {
+    position: absolute;
+    top: -30px;
+  }
+  .timeline ul li:hover::before {
+    background-color: aqua;
+  }
+}

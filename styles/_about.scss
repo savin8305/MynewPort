@@ -1,0 +1,133 @@
+.about {
+  @include flexSettings(row, space-around, center);
+  @include sectionLayout(80px 25px, var(--background-two));
+  height: 100%;
+
+  &_left {
+    flex: 0 0 50%;
+
+    &_head {
+      letter-spacing: 1px;
+      font-size: 42px;
+      margin-bottom: 40px;
+      color: #9c27b0;
+    }
+
+    &_text {
+      font-size: 22px;
+      color: var(--text-color-two);
+    }
+
+    &_socialMedia {
+      img {
+        height: 70px;
+        width: 70x;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        -webkit-border-radius: 35px !important;
+        border-radius: 15px !important;
+        -webkit-box-shadow: 5px 5px 0px #665f5f, -5px -5px 0px #ffffff !important;
+        box-shadow: 5px 5px 0px #665f5f, -5px -5px 0px #ffffff !important;
+        @include imageSize(40px, 40px, contain);
+        margin-right: 15px;
+        margin-top: 40px;
+        cursor: pointer;
+      }
+    }
+
+    &_starme {
+      animation: scrollPop 0.8s ease-in infinite alternate !important;
+      @include sectionLayout(10px 6px, #001c55);
+      @include borderWithRadius(1px solid #001c55, 6px);
+      margin-top: 40px;
+      color: #ffffff;
+      text-align: center;
+      width: 200px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      -webkit-border-radius: 35px !important;
+      border-radius: 15px !important;
+      -webkit-box-shadow: 5px 5px 0px #665f5f, -5px -5px 0px #ffffff !important;
+      box-shadow: 5px 5px 0px #665f5f, -5px -5px 0px #ffffff !important;
+    }
+    .star {
+      animation: rotate 4s infinite linear;
+      transition: transform 0.6s ease-in-out;
+    }
+  }
+  &_right {
+    flex: 0 0;
+    &_profilePic {
+      @include borderWithRadius(1px solid transparent, 50% 10%);
+      margin: 20px;
+      height: 320px;
+      width: 320px;
+
+      animation: scrollPop 5s ease-in infinite alternate !important;
+      background-clip: content-box, border-box;
+      background-size: cover;
+      background-image: url("../assets/52.webp");
+      background-repeat: no-repeat;
+      padding: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .about {
+    height: 100%;
+    &_left {
+      &_head {
+        font-size: 28px;
+      }
+      &_text {
+        font-size: 18px;
+      }
+    }
+    &_right {
+      &_profilePic {
+        height: 250px;
+        width: 250px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .about {
+    flex-direction: column-reverse;
+    padding: 50px 25px;
+
+    &_left {
+      text-align: center;
+
+      &_head {
+        font-size: 24px;
+      }
+
+      &_text {
+        font-size: 16px;
+      }
+
+      &_starme {
+        max-width: 200px;
+        margin: 30px auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .about {
+    &_right {
+      &_profilePic {
+        height: 200px;
+        width: 200px;
+      }
+    }
+  }
+}
+@keyframes scrollPop {
+  to {
+    transform: translateY(-5%);
+  }
+}
